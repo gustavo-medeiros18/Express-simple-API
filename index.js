@@ -6,7 +6,7 @@ conexao.connect((erro) => {
   if (erro)
     console.log(erro);
   else {
-    const app = customExpress;
+    const app = customExpress();
     
     app.listen(3000, () => console.log("Servidor ativo"));
     
