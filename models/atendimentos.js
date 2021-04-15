@@ -9,7 +9,7 @@ class Atendimento {
     const sql = "INSERT INTO Atendimentos SET ?";
 
     conexao.query(sql, atendimento, (erro, resultados) => {
-      console.log(erro ? `${erro}` : `${resultados}`);
+      console.log(erro ? `${erro}` : `Row inserted at ${atendimento.dataCriacao}`);
     });
   }
 }
