@@ -8,8 +8,6 @@ module.exports = (app) => {
   app.post("/atendimentos", (req, res) => {
     const atendimento = req.body;
 
-    Atendimento.adiciona(atendimento);
-
-    res.send(`${msg} e está realizando uma requisição POST`)
+    Atendimento.adiciona(atendimento, res);
   });
 }
