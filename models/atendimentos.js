@@ -1,5 +1,5 @@
 const moment = require("moment");
-const conexao = require("../infrastructure/conexao.js");
+const conexao = require("../database/conexao.js");
 
 class Atendimento {
   adiciona(atendimento, res) {

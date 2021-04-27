@@ -10,6 +10,10 @@ module.exports = (app) => {
 
     Atendimento.buscaPorID(id, res);
   });
+
+  app.post("/teste", (req, res) => {
+    res.send("Esta eh a rota de teste");
+  });
   
   app.post("/atendimentos", (req, res) => {
     const atendimento = req.body;
