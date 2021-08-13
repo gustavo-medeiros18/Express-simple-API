@@ -1,3 +1,4 @@
+const { suppressDeprecationWarnings } = require("moment");
 const customExpress = require("./config/customExpress");
 const conexao = require("./database/conexao");
 const Tabelas = require("./database/tabelas");
@@ -6,11 +7,9 @@ conexao.connect((erro) => {
   if (erro)
     console.log(erro);
   else {
-    console.log("A conexao deu certo");
-
     const app = customExpress();
     
-    app.listen(3000, () => console.log("Servidor ativo"));
+    app.listen(3000, () => console.log("Servidor ativo na porta 3000"));
     
     Tabelas.init(conexao);
   } 
