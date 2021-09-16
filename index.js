@@ -1,4 +1,3 @@
-const { suppressDeprecationWarnings } = require("moment");
 const customExpress = require("./config/customExpress");
 const conexao = require("./database/conexao");
 const Tabelas = require("./database/tabelas");
