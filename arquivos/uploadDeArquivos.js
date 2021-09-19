@@ -1,9 +1,17 @@
 const fs = require("fs");
+const path = require("path");
 
 module.exports = (caminho, nomeDoArquivo, callbackImagemCriada) => {
-  const novoCaminho = `./assets/imagens/${nomeDoArquivo}.jpg`;
+  const tiposValidos = ["jpg", "jpeg", "png"];
+  const tipo = path.extname(caminho);
 
-  fs.createReadStream(caminho)
-    .pipe(fs.createWriteStream(novoCaminho))
-    .on("finish", () => callbackImagemCriada(novoCaminho));
+  if (tiposValidos.indexOf(tipo.substring(1)) == -1)
+    console.log("Erro! - Formato invalido");
+  else {
+    const novoCaminho = `./assets/imagens/${nomeDoArquivo}${tipo}`;
+  
+    fs.createReadStream(caminho)
+      .pipe(fs.createWriteStream(novoCaminho))
+      .on("finish", () => callbackImagemCriada(novoCaminho));
+  }
 }
